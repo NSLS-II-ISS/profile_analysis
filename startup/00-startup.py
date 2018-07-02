@@ -15,3 +15,5 @@ xview_gui = Xview.XviewGui(iss_mono_pulses_per_deg, db=db)
 
 def xview():
     xview_gui.show()
+
+xview()

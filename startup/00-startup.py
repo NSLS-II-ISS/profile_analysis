@@ -1,7 +1,7 @@
 import databroker
 from PyQt5.QtWidgets import QApplication
 import sys
-from isstools import xview
+from xview import xview
 
 import requests
 from requests.packages.urllib3.exceptions import InsecureRequestWarning

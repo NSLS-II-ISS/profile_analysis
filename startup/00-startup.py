@@ -1,6 +1,7 @@
 import databroker
 from PyQt5.QtWidgets import QApplication
-import sys
+from PyQt5 import QtCore
+import sys,os
 from xview import xview
 
 import requests
@@ -9,8 +10,10 @@ requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
 db = databroker.Broker.named('iss')
 
+os.environ["QT_AUTO_SCREEN_SCALE_FACTOR"] = "1"
 
 app = QApplication(sys.argv)
+app.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling, True)
 xview_gui = xview.XviewGui(db=db)
 
 def xview():

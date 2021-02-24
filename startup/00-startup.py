@@ -1,12 +1,18 @@
 import databroker
 from PyQt5.QtWidgets import QApplication
-from PyQt5 import QtCore
-import sys,os
-from xview import xview
-
+from PyQt5 import uic, QtCore
+import sys
+from isstools import xview
+import os
 import requests
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
+
+
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+plt.ion()
 
 db = databroker.Broker.named('iss')
 

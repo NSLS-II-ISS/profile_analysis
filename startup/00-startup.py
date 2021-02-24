@@ -1,7 +1,7 @@
 import databroker
 from PyQt5.QtWidgets import QApplication
 import sys
-from xview import xview
+from isstools import xview
 
 import requests
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
@@ -15,8 +15,10 @@ plt.ion()
 
 db = databroker.Broker.named('iss')
 
+os.environ["QT_AUTO_SCREEN_SCALE_FACTOR"] = "1"
 
 app = QApplication(sys.argv)
+app.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling, True)
 xview_gui = xview.XviewGui(db=db)
 
 def xview():

@@ -2,7 +2,8 @@ import databroker
 from PyQt5.QtWidgets import QApplication
 from PyQt5 import uic, QtCore
 import sys
-from isstools import xview
+from xview import xview
+from xview.spectra_db.db_io import get_spectrum_catalog
 import os
 import requests
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
@@ -16,11 +17,14 @@ plt.ion()
 
 db = databroker.Broker.named('iss')
 
-os.environ["QT_AUTO_SCREEN_SCALE_FACTOR"] = "1"
+db_proc = get_spectrum_catalog()
+
+
+# os.environ["QT_AUTO_SCREEN_SCALE_FACTOR"] = "1"
 
 app = QApplication(sys.argv)
 app.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling, True)
-xview_gui = xview.XviewGui(db=db)
+xview_gui = xview.XviewGui(db=db, db_proc=db_proc)
 
 def xview():
     xview_gui.show()

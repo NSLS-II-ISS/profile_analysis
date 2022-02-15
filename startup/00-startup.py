@@ -15,7 +15,9 @@ import pandas as pd
 import matplotlib.pyplot as plt
 plt.ion()
 
-db = databroker.Broker.named('iss')
+# db = databroker.Broker.named('iss')
+db = databroker.Broker.named('iss-local')
+
 
 db_proc = get_spectrum_catalog()
 

@@ -16,7 +16,13 @@ import matplotlib.pyplot as plt
 plt.ion()
 
 # db = databroker.Broker.named('iss')
-db = databroker.Broker.named('iss-local')
+
+try:
+    db = databroker.Broker.named('iss-local')
+except Exception as e:
+    print(f'Failed to open ISS databroker: {e}')
+    db = None
+
 
 try:
     from xas.handlers import register_all_handlers
@@ -24,15 +30,34 @@ try:
 except Exception as e:
     pass
 
+# catalogs
+try:
+    db_archive_catalog = databroker.catalog['iss']
+except Exception as e:
+    print(f'Failed to open ISS archive databroker catalog: {e}')
+    db_archive_catalog = None
 
-db_proc = get_spectrum_catalog()
+try:
+    db_catalog = databroker.catalog['iss-local']
+except Exception as e:
+    print(f'Failed to open ISS databroker catalog: {e}')
+    db_catalog = None
+
+try:
+    db_proc = get_spectrum_catalog()
+except Exception as e:
+    print(f'Failed to open ISS processed database: {e}')
+    db_proc = None
+
+
 
 
 # os.environ["QT_AUTO_SCREEN_SCALE_FACTOR"] = "1"
 
 app = QApplication(sys.argv)
 app.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling, True)
-xview_gui = xview.XviewGui(db=db, db_proc=db_proc)
+xview_gui = xview.XviewGui(db=db, db_proc=db_proc, db_archive_catalog=db_archive_catalog, db_catalog=db_catalog)
+# xview_gui = xview.XviewGui(db=None, db_proc=None, db_archive_catalog=None, db_catalog=None)
 
 def xview():
     xview_gui.show()

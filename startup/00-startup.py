@@ -53,13 +53,13 @@ db_proc = None
 
 
 # os.environ["QT_AUTO_SCREEN_SCALE_FACTOR"] = "1"
-
-app = QApplication(sys.argv)
-app.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling, True)
-xview_gui = xview.XviewGui(db=db, db_proc=db_proc, db_archive_catalog=db_archive_catalog, db_catalog=db_catalog)
-# xview_gui = xview.XviewGui(db=None, db_proc=None, db_archive_catalog=None, db_catalog=None)
-
-def xview():
-    xview_gui.show()
-
-xview()
+#
+# app = QApplication(sys.argv)
+# app.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling, True)
+# xview_gui = xview.XviewGui(db=db, db_proc=db_proc, db_archive_catalog=db_archive_catalog, db_catalog=db_catalog)
+# # xview_gui = xview.XviewGui(db=None, db_proc=None, db_archive_catalog=None, db_catalog=None)
+#
+# def xview():
+#     xview_gui.show()
+#
+# xview()

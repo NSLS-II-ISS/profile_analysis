@@ -3,7 +3,7 @@ from PyQt5.QtWidgets import QApplication
 from PyQt5 import uic, QtCore
 import sys
 from xview import xview
-from xview.spectra_db.db_io import get_spectrum_catalog
+# from xview.spectra_db.db_io import get_spectrum_catalog
 import os
 import requests
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
@@ -43,11 +43,11 @@ except Exception as e:
     print(f'Failed to open ISS databroker catalog: {e}')
     db_catalog = None
 
-try:
-    db_proc = get_spectrum_catalog()
-except Exception as e:
-    print(f'Failed to open ISS processed database: {e}')
-    db_proc = None
+# try:
+#     db_proc = get_spectrum_catalog()
+# except Exception as e:
+#     print(f'Failed to open ISS processed database: {e}')
+db_proc = None
 
 
 

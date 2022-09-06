@@ -2,7 +2,7 @@ import databroker
 from PyQt5.QtWidgets import QApplication
 from PyQt5 import uic, QtCore
 import sys
-from xview import xview
+# from xview import xview
 # from xview.spectra_db.db_io import get_spectrum_catalog
 import os
 import requests

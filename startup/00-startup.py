@@ -18,7 +18,7 @@ plt.ion()
 # db = databroker.Broker.named('iss')
 
 try:
-    db = databroker.Broker.named('iss-local')
+    db = databroker.Broker.named('iss')
 except Exception as e:
     print(f'Failed to open ISS databroker: {e}')
     db = None
@@ -49,7 +49,9 @@ except Exception as e:
     print(f'Failed to open ISS processed database: {e}')
     db_proc = None
 
-
+import sys
+sys.stdout.write('\33]0;XView terminal\a')
+sys.stdout.flush()
 
 
 # os.environ["QT_AUTO_SCREEN_SCALE_FACTOR"] = "1"
